@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" Unlock all boxes """
+
 def canUnlockAll(boxes):
     """ Check if all boxes can be unlocked """
     if len(boxes) == 0:
