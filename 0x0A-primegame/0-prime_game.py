@@ -38,15 +38,19 @@ def isWinner(x, nums):
     n = max(nums)
     primes = [0] * (n + 1)
     primes = calculate_primes(n, primes)
-    winner = 0
-    for _ in range(x):
-        count = 0
-        for n in nums:
-            count += primes[n]
-        if count % 2 == 0:
-            winner += 1
-    if winner * 2 == x:
-        return None
-    if winner * 2 < x:
+
+    maria_wins = 0
+    ben_wins = 0
+
+    for num in nums:
+        if primes[num] % 2 == 0:
+            ben_wins += 1
+        else:
+            maria_wins += 1
+
+    if maria_wins > ben_wins:
+        return "Maria"
+    elif ben_wins > maria_wins:
         return "Ben"
-    return "Maria"
+    else:
+        return None
