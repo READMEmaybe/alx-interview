@@ -18,12 +18,9 @@ def is_prime(n):
     return True
 
 
-def calculate_primes(n, primes):
+def calculate_primes(n):
     """Calculate the number of primes"""
-    if n < 2:
-        return 0
-    primes[0] = 0
-    primes[1] = 0
+    primes = [0] * (n + 1)
     for i in range(2, n + 1):
         primes[i] = primes[i - 1]
         if is_prime(i):
@@ -36,8 +33,7 @@ def isWinner(x, nums):
     if not nums or x < 1:
         return None
     n = max(nums)
-    primes = [0] * (n + 1)
-    primes = calculate_primes(n, primes)
+    primes = calculate_primes(n)
 
     maria_wins = 0
     ben_wins = 0
